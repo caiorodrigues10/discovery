@@ -1,0 +1,254 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: black;
+  --bg-url: url(./assets/day.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+  --picture: url(./assets/praia.jpeg);
+}
+
+.dark {
+  --text-color: white;
+  --bg-url: url(./assets/night.png);
+  --stroke-color: rgba(225, 225, 225, 0.5);
+  --surface-color: rgba(225, 225, 225, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(225, 225, 225, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  --picture: url(./assets/lab.png);
+}
+
+body {
+  background: var(--bg-url) no-repeat center/cover;
+  font-family: "Open Sans", sans-serif;
+  color: black;
+}
+
+/* ---------- */
+header {
+  width: 100vw;
+  height: 42px;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 0px 40px;
+  color: white;
+  text-decoration: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32px;
+  margin: 0 auto;
+  position: relative;
+  width: 100px;
+  margin: 4px 0px;
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: var(--switch-bg-url) no-repeat center;
+  background-color: white;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 37px; /* 32px (bulb) + 4px (remaining in switch) + 1px (span border) */
+  z-index: 1;
+  transform: translate(0%, -50%);
+
+  animation: slide-out 0.2s;
+}
+.dark #switch button {
+  animation: slide-in 0.2s forwards;
+}
+#switch span {
+  display: block;
+  position: relative;
+  width: 64px;
+  height: 24px;
+  background: rgba(225, 225, 225, 0.05);
+  border: 1px solid rgba(225, 225, 225, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* ---------- */
+
+#why {
+  width: 100vw;
+  height: 126px;
+  margin: 120px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#why p {
+  width: 840px;
+  text-align: justify;
+}
+
+ul {
+  width: 360px;
+  margin: 56px auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+ul li a {
+  width: 360px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 10px;
+
+  transition: all 0.2s;
+}
+
+ul li a:hover {
+  background-color: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+  border-radius: 13px;
+}
+
+#social {
+  width: 360px;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 48px;
+}
+
+#social a {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-color);
+
+  padding: 16px;
+  border-radius: 50%;
+  color: var(--text-color);
+  transition: background 0.3s;
+}
+
+#social a:hover {
+  background: var(--highlight-color);
+}
+
+#profile {
+  border-radius: 20px;
+  width: 840px;
+  margin: 56px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+}
+
+#profile img {
+  width: 280px;
+  padding: 12px;
+  border-radius: 50%;
+}
+
+#profile p {
+  width: 560px;
+  padding: 12px;
+  text-align: justify;
+}
+
+#up {
+  width: 360px;
+  height: 72px;
+  margin: 24px auto 24px;
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#up button {
+  width: 360px;
+  height: 72px;
+  background-color: rgba(225, 225, 225, 0);
+  border: 0;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#up:hover {
+  background-color: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+  border-radius: 13px;
+}
+
+/* ---------- */
+footer {
+  height: 84px;
+  background-color: black;
+  padding: 12px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/*animation*/
+@keyframes slide-in {
+  from {
+    left: 37px;
+  }
+  to {
+    left: 67px;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 67px;
+  }
+  to {
+    left: 37px;
+  }
+}
